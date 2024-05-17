@@ -3,7 +3,6 @@ export * from "./CategoryList/CategoryList";
 export * from "./Header/Header";
 export * from "./Layout/Layout";
 export * from "./MainMenu/MainMenu";
-export * from "./Submenu/Submenu";
 export * from "./TextField/TextField";
 export * from "./Title/Title";
 export * from "./UserMenu/UserMenu";
