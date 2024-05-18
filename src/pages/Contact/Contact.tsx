@@ -1,8 +1,9 @@
+// src/pages/Contact/Contact.tsx
 import React, { useState } from 'react';
-import { Button } from "../../components/Button/Button";
-import { Layout } from "../../components/Layout/Layout";
-import { BackgroundForm, FormSection, Input, InputBox, ParagraphForm } from "./Contact.style";
-import { FlexSection, SectionConfig, ConfigDiv } from "../../components/Sections/Sections.style";
+import { Button } from "../../components/Button/Button"
+import { Layout } from "../../components/Layout/Layout"
+import { BackgroundForm, FormSection, Input, InputBox, ParagraphForm } from "./Contact.style"
+import { FlexSection, SectionConfig, ConfigDiv } from "../../components/Sections/Sections.style"
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -13,7 +14,6 @@ function Contact() {
         mensagem: ''
     });
 
-    // Função para lidar com a mudança nos inputs do formulário
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
         setFormData(prevState => ({
@@ -22,12 +22,10 @@ function Contact() {
         }));
     };
 
-    // Função para lidar com o envio do formulário
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
         try {
-            // Envia os dados do formulário para a API
             const response = await fetch('sua_url_da_api', {
                 method: 'POST',
                 headers: {
@@ -37,10 +35,8 @@ function Contact() {
             });
 
             if (response.ok) {
-                // Dados enviados com sucesso
                 console.log('Dados enviados com sucesso!');
             } else {
-                // Se ocorrer um erro ao enviar os dados
                 console.error('Erro ao enviar os dados.');
             }
         } catch (error) {
@@ -55,10 +51,12 @@ function Contact() {
                     <SectionConfig>
                         <ConfigDiv>
                             <div>
-                                <h2>Se torne um TrailBlazer com a Salesforce</h2>
+                                <h2>
+                                    Se torne um TrailBlazer com a Salesforce
+                                </h2>
                             </div>
                             <div>
-                                <img src="src/assets/th-discover.webp" alt="Discover Salesforce" />
+                                <img src="src/assets/th-discover.webp" alt="TrailBlazer" />
                             </div>
                         </ConfigDiv>
                     </SectionConfig>
@@ -71,58 +69,53 @@ function Contact() {
                         <form onSubmit={handleSubmit}>
                             <div>
                                 <input 
-                                    type="text" 
-                                    id="nome" 
-                                    name="nome" 
-                                    value={formData.nome} 
-                                    onChange={handleInputChange} 
-                                    placeholder="Nome"
-                                    style={Input}
-                                />
+                                type="text" 
+                                id="nome" 
+                                name="nome" 
+                                value={formData.nome} 
+                                onChange={handleInputChange} 
+                                placeholder="Nome"
+                                style={Input} />
                             </div>
                             <div>
                                 <input 
-                                    type="email" 
-                                    id="email" 
-                                    name="email" 
-                                    value={formData.email} 
-                                    onChange={handleInputChange} 
-                                    placeholder="Email corporativo"
-                                    style={Input}
-                                />
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                value={formData.email} 
+                                onChange={handleInputChange} 
+                                placeholder="Email corporativo"
+                                style={Input} />
                             </div>
                             <div>
                                 <input 
-                                    type="text" 
-                                    id="endereco" 
-                                    name="endereco" 
-                                    value={formData.endereco} 
-                                    onChange={handleInputChange} 
-                                    placeholder="Endereço"
-                                    style={Input}
-                                />
+                                type="text" 
+                                id="endereco" 
+                                name="endereco" 
+                                value={formData.endereco} 
+                                onChange={handleInputChange} 
+                                placeholder="Endereço" 
+                                style={Input} />
                             </div>
                             <div>
                                 <input 
-                                    type="text" 
-                                    id="pais" 
-                                    name="pais" 
-                                    value={formData.pais} 
-                                    onChange={handleInputChange} 
-                                    placeholder="País/Região"
-                                    style={Input}
-                                />
+                                type="text" 
+                                id="pais" 
+                                name="pais" 
+                                value={formData.pais} 
+                                onChange={handleInputChange} 
+                                placeholder="País/Região" 
+                                style={Input} />
                             </div>
                             <div>
                                 <input 
-                                    type="text" 
-                                    id="mensagem" 
-                                    name="mensagem" 
-                                    value={formData.mensagem} 
-                                    onChange={handleInputChange} 
-                                    placeholder="Perguntas/Comentários"
-                                    style={InputBox}
-                                />
+                                type="text" 
+                                id="mensagem" 
+                                name="mensagem" 
+                                value={formData.mensagem} 
+                                onChange={handleInputChange} 
+                                placeholder="Perguntas/Comentários" 
+                                style={InputBox} />
                             </div>
                             <Button type="submit" onClick={handleSubmit}>Faça o teste grátis</Button>
                         </form>
@@ -130,7 +123,7 @@ function Contact() {
                 </FlexSection>
             </Layout>
         </div>
-    );
+    )
 }
 
 export default Contact;

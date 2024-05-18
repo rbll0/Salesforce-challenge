@@ -61,7 +61,7 @@ export default function Login() {
               id="email"
               label="E-mail Corporativo"
               type="email"
-              value={formData.email}
+              value={formData.email }
               onChange={handleInputChange}
               required
             />
