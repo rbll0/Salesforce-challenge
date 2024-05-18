@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Layout, TextField } from "../../components";
+import { Button, Layout } from "../../components";
+import { TextField } from "@mui/material";
 import {
   LoginActionContentElement,
   LoginBearImage,
@@ -7,10 +8,8 @@ import {
 } from "./Login.style";
 import LoginBear from "../../assets/Login-Image.webp";
 
-
 export default function Login() {
   const [formData, setFormData] = useState({
-    nome: '',
     email: '',
     password: ''
   });
@@ -61,7 +60,7 @@ export default function Login() {
               id="email"
               label="E-mail Corporativo"
               type="email"
-              value={formData.email }
+              value={formData.email}
               onChange={handleInputChange}
               required
             />
@@ -73,10 +72,10 @@ export default function Login() {
               onChange={handleInputChange}
               required
             />
-            <Button onClick={handleSubmit} type="submit">Entrar</Button>
+            <Button type="submit">Entrar</Button>
           </form>
         </LoginActionContentElement>
-        <LoginBearImage src={LoginBear} alt="placeholder" />
+        <LoginBearImage src={LoginBear} alt="Login Bear" />
       </LoginWrapperElement>
     </Layout>
   );
