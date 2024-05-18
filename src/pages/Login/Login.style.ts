@@ -1,5 +1,6 @@
-import { styled } from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from '@emotion/styled';
+import { Box } from '@mui/material';
+import { colors } from '../../styles/colors';
 
 export const LoginWrapperElement = styled.div`
   display: flex;
@@ -8,11 +9,12 @@ export const LoginWrapperElement = styled.div`
   background-color: ${colors.backgound.main};
 `;
 
-export const LoginActionContentElement = styled.div`
+export const LoginActionContentElement = styled(Box)`
   flex-grow: 1;
+  padding: 2rem; /* Adicionei padding para melhor espaçamento */
   & h1 {
     line-height: 1.2;
-    margin-bottom: 2.0rem;
+    margin-bottom: 2rem;
     font-size: 2.5rem;
     font-weight: 800;
     color: ${colors.text.title};
@@ -21,7 +23,7 @@ export const LoginActionContentElement = styled.div`
 
   & p {
     margin-bottom: 1rem;
-    font-size: 1.0rem;
+    font-size: 1rem;
     text-align: left;
     font-weight: 500;
     color: ${colors.text.main};

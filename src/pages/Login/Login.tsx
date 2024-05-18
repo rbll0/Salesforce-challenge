@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Layout } from "../../components";
+import { Button } from '@mui/material';
+import { Layout } from "../../components";
 import { TextField } from "@mui/material";
 import {
   LoginActionContentElement,
@@ -63,6 +64,8 @@ export default function Login() {
               value={formData.email}
               onChange={handleInputChange}
               required
+              fullWidth
+              margin="normal"
             />
             <TextField
               id="password"
@@ -71,8 +74,10 @@ export default function Login() {
               value={formData.password}
               onChange={handleInputChange}
               required
+              fullWidth
+              margin="normal"
             />
-            <Button type="submit">Entrar</Button>
+            <Button type="submit" variant="contained" color="primary" size='medium'>Entrar</Button>
           </form>
         </LoginActionContentElement>
         <LoginBearImage src={LoginBear} alt="Login Bear" />
