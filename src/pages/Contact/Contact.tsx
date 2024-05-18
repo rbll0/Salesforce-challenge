@@ -4,6 +4,7 @@ import { Button } from "../../components/Button/Button"
 import { Layout } from "../../components/Layout/Layout"
 import { BackgroundForm, FormSection, Input, InputBox, ParagraphForm } from "./Contact.style"
 import { FlexSection, SectionConfig, ConfigDiv } from "../../components/Sections/Sections.style"
+import contactImage from "../../assets/th-discover.webp"
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ function Contact() {
                                 </h2>
                             </div>
                             <div>
-                                <img src="src/assets/th-discover.webp" alt="TrailBlazer" />
+                                <img src={contactImage} alt="TrailBlazer" />
                             </div>
                         </ConfigDiv>
                     </SectionConfig>
