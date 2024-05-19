@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
-import { Layout } from "../../components";
-import { TextField } from "@mui/material";
+import { Button, TextField } from '@mui/material';
+import { Layout } from '../../components';
 import {
   LoginActionContentElement,
   LoginBearImage,
   LoginWrapperElement,
-} from "./Login.style";
-import LoginBear from "../../assets/Login-Image.webp";
+} from './Login.style';
+import LoginBear from '../../assets/Login-Image.webp';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
   });
 
-  // Função para lidar com a mudança nos inputs do formulário
+  // Função para atualizar os campos do formulário
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [id]: value
+      [id]: value,
     }));
   };
 
@@ -28,25 +27,31 @@ export default function Login() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
+    const loginData = {
+      email_log: formData.email, // Ajuste para corresponder ao backend
+      senha_log: formData.password, // Ajuste para corresponder ao backend
+    };
+
     try {
-      // Envia os dados do formulário para a API de login
-      const response = await fetch('sua_url_da_api_de_login', {
+      const response = await fetch('http://localhost:8000/login/autenticar', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(loginData),
       });
 
       if (response.ok) {
-        // Login bem-sucedido
-        console.log('Login bem-sucedido!');
+        // Se a resposta for bem-sucedida (status 200)
+        const data = await response.json();
+        console.log('Login bem-sucedido!', data);
         // Redirecionar ou realizar outras ações necessárias após o login
       } else {
-        // Se ocorrer um erro ao enviar os dados
+        // Se ocorrer algum erro de autenticação (status 401 ou outro)
         console.error('Erro ao fazer login.');
       }
     } catch (error) {
+      // Se ocorrer um erro durante a requisição
       console.error('Erro ao fazer login:', error);
     }
   };
@@ -77,7 +82,14 @@ export default function Login() {
               fullWidth
               margin="normal"
             />
-            <Button type="submit" variant="contained" color="primary" size='medium'>Entrar</Button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="medium"
+            >
+              Entrar
+            </Button>
           </form>
         </LoginActionContentElement>
         <LoginBearImage src={LoginBear} alt="Login Bear" />
